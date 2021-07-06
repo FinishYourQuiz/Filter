@@ -1,0 +1,47 @@
+.page{
+    padding: 2vw 5vw;
+    background: white;
+}
+.head{
+    font-size: 3vh;
+    /* border-bottom: 1px solid black;
+    color: black; */
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+}
+
+.banner{
+    display: flex;
+    flex: 2;
+    border: 1px solid black;
+    /* height: 90vh; */
+}
+
+.benchmark{
+    display: flex;
+    flex: 10;
+}
+
+.menu {
+    width: 100%; 
+}
+
+.menu a {
+    background-color: #eee; 
+    color: black; 
+    display: block; 
+    padding: 12px; 
+    /* text-overflow: ellipsis; */
+}
+
+.menu a:hover {
+    background-color: #ccc; 
+}
+
+.menu a.active {
+    background-color: #04AA6D;
+    color: white;
+}

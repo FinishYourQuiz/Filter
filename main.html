@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="main.css"/>
+        <script src="main.js"></script>
+    </head>
+    <body class="page">
+        <div class="head" >Filter!</div>
+        <div class="container">
+            <div class="banner" style="flex-direction: column">
+                <div>Filters</div>
+                <div class="menu">
+                    <a onClick="getNewPhoto()">Filter 1</a>
+                    <a>Filter 1</a>
+                    <a>Filter 1</a>
+                    <a>Filter 1</a>
+                    <a>Filter 1</a>
+                    <a>Filter 1</a>
+                </div>
+            </div>
+            <div class="benchmark" style="flex-direction: column">
+                <div>Raw Image</div>
+                <img style="object-fit: contain; width: 300px; height:150px" src="./sample.jpeg"/>
+                <div>Filterd Image</div>
+                <img style="object-fit: contain; width: 300px; height:150px" id="new_image" src="./sample.jpeg"/>
+            </div>
+        </div>
+    </body>
+</html>
