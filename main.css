@@ -2,6 +2,7 @@
     padding: 2vw 5vw;
     background: white;
 }
+
 .head{
     font-size: 3vh;
     /* border-bottom: 1px solid black;
@@ -15,7 +16,7 @@
 
 .banner{
     display: flex;
-    flex: 2;
+    flex: 3;
     border: 1px solid black;
     /* height: 90vh; */
 }
@@ -23,10 +24,21 @@
 .benchmark{
     display: flex;
     flex: 10;
+    padding: 1vw 3vw;
+}
+
+.tag{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    margin-right: 20vw;
 }
 
 .menu {
     width: 100%; 
+    margin-right: 3vw;
 }
 
 .menu a {
@@ -44,4 +56,12 @@
 .menu a.active {
     background-color: #04AA6D;
     color: white;
+}
+
+.Wait{
+    position:absolute;
+    top:30%;
+    left:50%;
+    width:200px;
+    background-image: url();
 }

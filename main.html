@@ -4,10 +4,9 @@
     <head>
         <link rel="stylesheet" href="main.css"/>
         <script>
-            var fs = require('fs');
             function getNewPhoto(ROUTE){
-                console.log(ROUTE);
-                console.log(document.getElementById("raw_image").src)
+                document.getElementById('Wait').hidden = false;
+                console.log(document.getElementById("new_image").src);
                 fetch("http://127.0.0.1:5000/"+ROUTE, {
                     body: JSON.stringify({
                         mode: 'no-cors',
@@ -21,21 +20,25 @@
                 }).then( res => {
                     return res.json();
                 }).then( res => {
-                    //var prev = document.getElementById("new_image").src;
+                    document.getElementById("new_image").src = '';
                     document.getElementById("new_image").src = res['new_image'];
-                    //fs.unlink(prev);
                     console.log('HEY');
+                    document.getElementById('Wait').hidden = true;
                 })
             } 
             function updateURL(){
                 var url = document.getElementById('image_url').value;
-                //console.log(document.getElementById('image_url').value);
+                document.getElementById('raw_image').src = url;
+                document.getElementById('new_image').src = url;
+                console.log(document.getElementById('image_url').src);
+                console.log(document.getElementById('raw_image').src);
             }
         </script>
     </head>
     <body class="page">
+        
         <div class="head" >Filter!</div>
-        <div> Enter the URL of the image you want to edit with 
+        <div style="text-align: right"> Enter the URL of the image you want to edit with 
             <input type="text" id="image_url"/>
             <button type="submit" onClick="updateURL()"> Edit </button>
         </div>
@@ -52,13 +55,20 @@
                 </div>
             </div>
             <div class="benchmark" style="flex-direction: column">
-                <div>Raw Image</div>
-                <img style="object-fit: contain; width: 300px; height:150px" \
-                    id="raw_image" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.P_esfI5wWN8T2rwPGl3osgHaFC?w=235&h=180&c=7&o=5&dpr=1.25&pid=1.7"/>
-                <div>Filterd Image</div>
-                <img style="object-fit: contain; width: 300px; height:150px" \
-                    id="new_image" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.P_esfI5wWN8T2rwPGl3osgHaFC?w=235&h=180&c=7&o=5&dpr=1.25&pid=1.7"/>
+                <div class='tag'>
+                    <div style="width: 100px"> Raw Image </div>
+                    <img style="object-fit: contain; width: 400px; height:250px" \
+                        id="raw_image" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.P_esfI5wWN8T2rwPGl3osgHaFC?w=235&h=180&c=7&o=5&dpr=1.25&pid=1.7"/>
+                </div>
+                <div class='tag'>
+                    <div style="width: 100px"> Filterd Image </div>
+                    <img style="object-fit: contain; width: 400px; height:250px" \
+                        id="new_image" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.P_esfI5wWN8T2rwPGl3osgHaFC?w=235&h=180&c=7&o=5&dpr=1.25&pid=1.7"/>
+                </div>
             </div>
+        </div>
+        <div hidden="true" class="Wait" id="Wait">
+            <img style="width: 30px; height:30px;" src="https://www.bing.com/th/id/OGC.581a72dd11d8e82c21c86d4e2052fb45?pid=1.7&rurl=https%3a%2f%2ficon-library.com%2fimages%2fwaiting-icon-gif%2fwaiting-icon-gif-5.jpg&ehk=RM1TxZfIfPhtmYPcpsf8%2b9PLfXG417NtU0%2b0azzIGcI%3d" />
         </div>
     </body>
 </html>

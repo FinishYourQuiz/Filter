@@ -6,11 +6,6 @@ CORS(app)
 
 app.config['TRAP_HTTP_EXCEPTIONS'] = True
 
-def temp():
-    info = request.get_json()
-    image_path = info['image']
-    return image_path
-
 @app.route('/BlackAndWhite', methods=['POST'])
 def black_white():
     info = request.get_json()
