@@ -1,19 +1,51 @@
 
 <!DOCTYPE html>
-<html>
+<html> 
     <head>
         <link rel="stylesheet" href="main.css"/>
-        <script src="main.js"></script>
+        <script>
+            var fs = require('fs');
+            function getNewPhoto(ROUTE){
+                console.log(ROUTE);
+                console.log(document.getElementById("raw_image").src)
+                fetch("http://127.0.0.1:5000/"+ROUTE, {
+                    body: JSON.stringify({
+                        mode: 'no-cors',
+                        credentials: 'include',
+                        'image': document.getElementById('raw_image').src,
+                    }),
+                    headers: {
+                        'content-type': 'application/json',
+                    },
+                    method: 'POST',
+                }).then( res => {
+                    return res.json();
+                }).then( res => {
+                    //var prev = document.getElementById("new_image").src;
+                    document.getElementById("new_image").src = res['new_image'];
+                    //fs.unlink(prev);
+                    console.log('HEY');
+                })
+            } 
+            function updateURL(){
+                var url = document.getElementById('image_url').value;
+                //console.log(document.getElementById('image_url').value);
+            }
+        </script>
     </head>
     <body class="page">
         <div class="head" >Filter!</div>
+        <div> Enter the URL of the image you want to edit with 
+            <input type="text" id="image_url"/>
+            <button type="submit" onClick="updateURL()"> Edit </button>
+        </div>
         <div class="container">
             <div class="banner" style="flex-direction: column">
                 <div>Filters</div>
                 <div class="menu">
-                    <a onClick="getNewPhoto()">Filter 1</a>
-                    <a>Filter 1</a>
-                    <a>Filter 1</a>
+                    <a onClick="getNewPhoto('BlackAndWhite')" >Black and White</a>
+                    <a onClick="getNewPhoto('OldFilm')">Old Film</a>
+                    <a onClick="getNewPhoto('Reverse')">Reverse</a>
                     <a>Filter 1</a>
                     <a>Filter 1</a>
                     <a>Filter 1</a>
@@ -21,9 +53,11 @@
             </div>
             <div class="benchmark" style="flex-direction: column">
                 <div>Raw Image</div>
-                <img style="object-fit: contain; width: 300px; height:150px" src="./sample.jpeg"/>
+                <img style="object-fit: contain; width: 300px; height:150px" \
+                    id="raw_image" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.P_esfI5wWN8T2rwPGl3osgHaFC?w=235&h=180&c=7&o=5&dpr=1.25&pid=1.7"/>
                 <div>Filterd Image</div>
-                <img style="object-fit: contain; width: 300px; height:150px" id="new_image" src="./sample.jpeg"/>
+                <img style="object-fit: contain; width: 300px; height:150px" \
+                    id="new_image" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.P_esfI5wWN8T2rwPGl3osgHaFC?w=235&h=180&c=7&o=5&dpr=1.25&pid=1.7"/>
             </div>
         </div>
     </body>
