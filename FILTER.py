@@ -6,10 +6,10 @@ import uuid
 
 def getUniqueID(new):
     curr = './photo/'+str(uuid.uuid1())+'.png'
-    for file in os.listdir('./photo'):
-        print(file)
-        if file.endswith('.png'):
-            os.remove('./photo/'+file) 
+    if len( os.listdir('./photo')) > 15:
+        for file in os.listdir('./photo'):
+            if file.endswith('.png'):
+                os.remove('./photo/'+file) 
     new.save(curr)
     return curr
 
