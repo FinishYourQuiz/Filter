@@ -3,15 +3,28 @@
 <html> 
     <head>
         <link rel="stylesheet" href="main.css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script>
-            function getNewPhoto(ROUTE){
+            function checkImage(url) {
+                var http = new XMLHttpRequest(); 
+                try{
+                    http.open('HEAD', url, false); 
+                    http.send(); 
+                }catch{
+                    return false;
+                }
+                return http.status != 404; 
+            }
+            function getNewPhoto(ROUTE, data="redRange"){
                 document.getElementById('Wait').hidden = false;
-                console.log(document.getElementById("new_image").src);
+                console.log(document.getElementById(data).value);
                 fetch("http://127.0.0.1:5000/"+ROUTE, {
                     body: JSON.stringify({
                         mode: 'no-cors',
                         credentials: 'include',
                         'image': document.getElementById('raw_image').src,
+                        'data': document.getElementById(data).value,
                     }),
                     headers: {
                         'content-type': 'application/json',
@@ -26,49 +39,73 @@
                     document.getElementById('Wait').hidden = true;
                 })
             } 
+            function display(){
+                if(document.getElementById('url').hidden){
+                    document.getElementById('url').hidden = false;
+                }else{
+                    document.getElementById('url').hidden = true;
+                }
+            }
             function updateURL(){
                 var url = document.getElementById('image_url').value;
-                document.getElementById('raw_image').src = url;
-                document.getElementById('new_image').src = url;
-                console.log(document.getElementById('image_url').src);
-                console.log(document.getElementById('raw_image').src);
+                if(checkImage(url)){
+                    document.getElementById('raw_image').src = url;
+                    document.getElementById('new_image').src = url;
+                    document.getElementById('url').hidden = true;
+                    document.getElementById('invalid').hidden = true;
+                }else{
+                    console.log('Invalid image address!')
+                    document.getElementById('invalid').hidden = false;
+                }
             }
         </script>
     </head>
-    <body class="page">
-        
-        <div class="head" >Filter!</div>
-        <div style="text-align: right"> Enter the URL of the image you want to edit with 
-            <input type="text" id="image_url"/>
-            <button type="submit" onClick="updateURL()"> Edit </button>
-        </div>
-        <div class="container">
-            <div class="banner" style="flex-direction: column">
-                <div>Filters</div>
-                <div class="menu">
-                    <a onClick="getNewPhoto('BlackAndWhite')" >Black and White</a>
-                    <a onClick="getNewPhoto('OldFilm')">Old Film</a>
-                    <a onClick="getNewPhoto('Reverse')">Reverse</a>
-                    <a>Filter 1</a>
-                    <a>Filter 1</a>
-                    <a>Filter 1</a>
+    <body>
+        <div class="head">Filter! </div>
+        <div class="page">
+            <div hidden=false class="Wait" id="Wait" >
+                <i class="fa fa-spinner fa-spin"></i> Loading
+            </div>
+            <div class="container">
+                <div class="banner" style="flex-direction: column">
+                    <div class="filter_title">Select Filters</div>
+                    <div class="menu">
+                        <a active='' onClick="getNewPhoto('BlackAndWhite')" >Black and White</a>
+                        <a active='' onClick="getNewPhoto('OldFilm')">Old Film</a>
+                        <a active='' onClick="getNewPhoto('Reverse')">Reverse</a>
+                        <a active='' onClick="getNewPhoto('RedEnhance', 'redRange')">
+                            Red Enhance
+                            <div>
+                                0<input id="redRange" type="range" min="1.0" step="0.1" max="20.0"  value="10.0" />20</div>
+                        </a>
+                        <a active='' onClick="getNewPhoto('GreenEnhance', 'greenRange')">
+                            Green Enhance
+                            <div>0<input id="greenRange" type="range" min="1.0" step="0.1" max="20.0" value="10.0" /> 20 </div>
+                        </a>
+                        <a active='' onClick="getNewPhoto('BlueEnhance','blueRange')">
+                            Blue Enhance
+                            <div>0<input id="blueRange" type="range" min="1.0" step="0.1" max="20.0" value="10.0" /> 20 </div>
+                        </a>
+                        <a active='' onClick="getNewPhoto('EdgeEnhance')">Edge Enhance</a>
+                        <a active='' onClick="getNewPhoto('Blur')">Blur</a>
+                        <a active='' onClick="getNewPhoto('Contour')">Contour</a>
+                        <a active='' onClick="getNewPhoto('Detail')">Detail</a>
+                        <a active='' onClick="getNewPhoto('Smooth')">Smooth</a>
+                        <a active='' onClick="getNewPhoto('Sharpen')">Sharpen</a>
+                    </div>
+                </div>
+                <div class="benchmark" style="flex-direction: column">
+                    <img hidden id="raw_image" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.P_esfI5wWN8T2rwPGl3osgHaFC?w=235&h=180&c=7&o=5&dpr=1.25&pid=1.7"/>
+                    <img class="photo" id="new_image" \
+                        src="https://tse4-mm.cn.bing.net/th/id/OIP-C.P_esfI5wWN8T2rwPGl3osgHaFC?w=235&h=180&c=7&o=5&dpr=1.25&pid=1.7"/>
                 </div>
             </div>
-            <div class="benchmark" style="flex-direction: column">
-                <div class='tag'>
-                    <div style="width: 100px"> Raw Image </div>
-                    <img style="object-fit: contain; width: 400px; height:250px" \
-                        id="raw_image" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.P_esfI5wWN8T2rwPGl3osgHaFC?w=235&h=180&c=7&o=5&dpr=1.25&pid=1.7"/>
-                </div>
-                <div class='tag'>
-                    <div style="width: 100px"> Filterd Image </div>
-                    <img style="object-fit: contain; width: 400px; height:250px" \
-                        id="new_image" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.P_esfI5wWN8T2rwPGl3osgHaFC?w=235&h=180&c=7&o=5&dpr=1.25&pid=1.7"/>
-                </div>
+            <div id="url" hidden class="floating_URL">
+                <input id="image_url" type="url"/><br>
+                <div id="invalid" hidden style="color:red">Invalid Address!</div>
+                <button type="submit" onClick="updateURL()">Change Photo</button>
             </div>
-        </div>
-        <div hidden="true" class="Wait" id="Wait">
-            <img style="width: 30px; height:30px;" src="https://www.bing.com/th/id/OGC.581a72dd11d8e82c21c86d4e2052fb45?pid=1.7&rurl=https%3a%2f%2ficon-library.com%2fimages%2fwaiting-icon-gif%2fwaiting-icon-gif-5.jpg&ehk=RM1TxZfIfPhtmYPcpsf8%2b9PLfXG417NtU0%2b0azzIGcI%3d" />
+            <button type="submit" onClick="display()" class="floating_edit"> <i class="material-icons">edit</i></button>
         </div>
     </body>
 </html>

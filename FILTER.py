@@ -1,5 +1,10 @@
 import numpy as np
 from PIL import Image
+from PIL import ImageFilter
+from PIL.ImageFilter import (
+    BLUR, CONTOUR, DETAIL, EDGE_ENHANCE, EDGE_ENHANCE_MORE,
+    EMBOSS, FIND_EDGES, SMOOTH, SMOOTH_MORE, SHARPEN
+)
 import urllib.request
 import os
 import uuid
@@ -52,31 +57,57 @@ def RedEnhance(URL, params=12):
 def BlueEnhance(URL, params=12): 
     getPath(URL)
     image = np.asarray(Image.open('image.png').convert('RGB'))
-    
-    try:
-        os.remove("BlueEnhance.png")  
-    except:
-        print('NO BlueEnhance.png')
-        
     im1 = np.sqrt(image*[0.0,0.0,1.0])*params
     im2 = image*[1.0,1.0,0.0]
     im = im1+im2
     img = Image.fromarray(np.array(im).astype('uint8'))
-    img.save('BlueEnhance.png')
-    return 'BlueEnhance.png'
+    return getUniqueID(img)
 
 def GreenEnhance(URL, params=12): 
     getPath(URL)
     image = np.asarray(Image.open('image.png').convert('RGB'))
-    
-    try:
-        os.remove("GreenEnhance.png")  
-    except:
-        print('NO GreenEnhance.png')
-        
     im1 = np.sqrt(image*[0.0,1.0,0.0])*params
     im2 = image*[1.0,0.0,1.0]
     im = im1+im2
     img = Image.fromarray(np.array(im).astype('uint8'))
-    img.save('GreenEnhance.png')
-    return 'GreenEnhance.png'
+    return getUniqueID(img)
+
+def Blur(URL):
+    getPath(URL)
+    return getUniqueID(Image.open('image.png').filter(BLUR))
+    
+def Contour(URL):
+    getPath(URL)
+    return getUniqueID(Image.open('image.png').filter(CONTOUR))
+    
+def Detail(URL):
+    getPath(URL)
+    return getUniqueID(Image.open('image.png').filter(DETAIL))
+    
+def EdgeEnhance(URL):
+    getPath(URL)
+    return getUniqueID(Image.open('image.png').filter(EDGE_ENHANCE))
+    
+def EdgeEnhanceMore(URL):
+    getPath(URL)
+    return getUniqueID(Image.open('image.png').filter(EDGE_ENHANCE_MORE))
+
+def Emboss(URL):
+    getPath(URL)
+    return getUniqueID(Image.open('image.png').filter(EMBOSS))
+    
+def FindEdges(URL):
+    getPath(URL)
+    return getUniqueID(Image.open('image.png').filter(FIND_EDGES))
+    
+def Smooth(URL):
+    getPath(URL)
+    return getUniqueID(Image.open('image.png').filter(SMOOTH))
+    
+def SmoothMore(URL):
+    getPath(URL)
+    return getUniqueID(Image.open('image.png').filter(SMOOTH_MORE))
+    
+def Sharpen(URL):
+    getPath(URL)
+    return getUniqueID(Image.open('image.png').filter(SHARPEN))
