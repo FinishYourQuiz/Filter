@@ -1,7 +1,7 @@
 ## __Contributor__
-$$\bold{Name: Ziyao\ Yang}$$
+Name: Ziyao Yang
 
-$$\bold{Student\ number:  z5183948}$$
+Student number:  z5183948
 
 ## __Problem statement__
 
