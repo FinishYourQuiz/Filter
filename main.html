@@ -3,28 +3,659 @@
 <html> 
     <head>
         <link rel="stylesheet" href="main.css"/>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    </head>
+    <body>
+        <div class="head">Filter! </div>
+        <div class="page">
+            <div class="container">
+                <div class="bigTitle" style="flex-direction: column">
+                    <div class="big_title" id="basic" onClick="updateBigTitle('basic')">Basic Effects</div>
+                    <div class="big_title" id="blur" onClick="updateBigTitle('blur')">Blur Effects</div>
+                    <div class="big_title" id="edge" onClick="updateBigTitle('edge')">Edges Effects</div>
+                    <div class="big_title" id="color" onClick="updateBigTitle('color')">Color Effects</div>
+                    <div class="big_title" id="frame" onClick="updateBigTitle('frame')">Frames</div>
+                    <div class="big_title" id="operation" onClick="updateBigTitle('operation')">Basic Operations</div>
+                </div>
+                <div class="banner" style="flex-direction: column">
+                    <div class="menu">
+                        <div hidden id='menu_basic'>
+                            <a class="copy_a" id="Reverse" onClick="getNewPhoto('Reverse')">Reverse
+                                <img src="samples/inverse.png">
+                                <div  >
+                                    <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                </div>
+                            </a>
+                            <a class="copy_a" id="BlackAndWhite" onClick="getNewPhoto('BlackAndWhite')">Black and white
+                                <img src="samples/black_white.png">
+                                <div  >
+                                    <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                </div>
+                            </a>
+                            <div class="copy_a_title" onClick="openClose('bright')">Brightness <object style="width:20px" data="bottom.svg" type="image/svg+xml"></object></div>
+                            <div style="padding-left: 20px;" id='bright' hidden>
+                                <a class="copy_a" onClick="getNewPhoto('Brightness1', 1)" id="Brightness1">
+                                    Brightness 1 <img src="samples/bright_1.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Brightness2', 2)" id="Brightness2">
+                                    Brightness 2<img src="samples/bright_2.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Brightness3', 3)" id="Brightness3">
+                                    Brightness 3<img src="samples/bright_3.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Brightness4', 4)" id="Brightness4">
+                                    Brightness 4<img src="samples/bright_4.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Brightness5', 5)" id="Brightness5">
+                                    Brightness 5<img src="samples/bright_5.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Brightness6', 6)" id="Brightness6">
+                                    Brightness 6<img src="samples/bright_6.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="copy_a_title" onClick="openClose('contrast')">Contrast<object style="width:20px" data="bottom.svg" type="image/svg+xml" ></object></div>
+                            <div style="padding-left: 20px;" id='contrast' hidden>
+                                <a class="copy_a" onClick="getNewPhoto('Contrast1', 1)" id="Contrast1">
+                                    Contrast 1 <img src="samples/contrast_1.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Contrast2', 2)" id="Contrast2">
+                                    Contrast 2 <img src="samples/contrast_2.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Contrast3', 3)" id="Contrast3">
+                                    Contrast 3 <img src="samples/contrast_3.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Contrast4', 4)" id="Contrast4">
+                                    Contrast 4 <img src="samples/contrast_4.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Contrast5', 5)" id="Contrast5">
+                                    Contrast 5 <img src="samples/contrast_5.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Contrast6', 6)" id="Contrast6">
+                                    Contrast 6 <img src="samples/contrast_6.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Contrast7', 7)" id="Contrast7">
+                                    Contrast 7 <img src="samples/contrast_7.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="copy_a_title" onClick="openClose('sharp')">Sharpness<object style="width:20px" data="bottom.svg" type="image/svg+xml"></object></div>
+                            <div style="padding-left: 20px;" id='sharp' hidden>
+                                <a class="copy_a" onClick="getNewPhoto('Sharpness1', 1)" id="Sharpness1">
+                                    Sharpen 1 <img src="samples/sharpen_1.png">
+                                    <div  >
+                                        <img src="https://www.magrudereye.com/wp-content/uploads/2018/08/Blurred-vision-768x512.jpeg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Sharpness2', 2)" id="Sharpness2">
+                                    Sharpen 2 <img src="samples/sharpen_2.png">
+                                    <div  >
+                                        <img src="https://www.magrudereye.com/wp-content/uploads/2018/08/Blurred-vision-768x512.jpeg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Sharpness3', 3)" id="Sharpness3">
+                                    Sharpen 3 <img src="samples/sharpen_3.png">
+                                    <div  >
+                                        <img src="https://www.magrudereye.com/wp-content/uploads/2018/08/Blurred-vision-768x512.jpeg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Sharpness4', 4)" id="Sharpness4">
+                                    Sharpen 4 <img src="samples/sharpen_4.png">
+                                    <div  >
+                                        <img src="https://www.magrudereye.com/wp-content/uploads/2018/08/Blurred-vision-768x512.jpeg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Sharpness5', 5)" id="Sharpness5">
+                                    Sharpen 5 <img src="samples/sharpen_5.png">
+                                    <div  >
+                                        <img src="https://www.magrudereye.com/wp-content/uploads/2018/08/Blurred-vision-768x512.jpeg"></img>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div hidden id='menu_blur'>
+                            <a class="copy_a" onClick="getNewPhoto('Mean')" id="Mean" >
+                                Mean <img src="samples/mean.png">
+                                <div  >
+                                        <img src="https://st2.depositphotos.com/1106005/5560/i/950/depositphotos_55601291-stock-photo-black-small-polka-dot-pattern.jpg"></img>
+                                    </div>
+                            </a>
+                            <a class="copy_a" onClick="getNewPhoto('Gaussian1')" id="Gaussian1" >
+                                Gaussian1 <img src="samples/gaussian_1.png">
+                                <div  >
+                                        <img src="https://st2.depositphotos.com/1106005/5560/i/950/depositphotos_55601291-stock-photo-black-small-polka-dot-pattern.jpg"></img>
+                                    </div>
+                            </a>
+                            <a class="copy_a" onClick="getNewPhoto('Gaussian2')" id="Gaussian2" >
+                                Gaussian2 <img src="samples/gaussian_2.png">
+                                <div  >
+                                        <img src="https://st2.depositphotos.com/1106005/5560/i/950/depositphotos_55601291-stock-photo-black-small-polka-dot-pattern.jpg"></img>
+                                    </div>
+                            </a>
+                        </div>
+                        <div hidden id='menu_edge'>
+                            <a class="copy_a" onClick="getNewPhoto('EdgeDetection')" id="EdgeDetection" >Edge Detection
+                                <img src="samples/edge.png">
+                                <div  >
+                                    <img src="https://adch.org.uk/wp-content/uploads/2021/02/Cute-dog-and-cat.jpg"></img>
+                                </div>
+                            </a>
+                            <a class="copy_a" onClick="getNewPhoto('Contour')" id="Contour" >Contour
+                                <img src="samples/contour.png">
+                                <div  >
+                                    <img src="https://adch.org.uk/wp-content/uploads/2021/02/Cute-dog-and-cat.jpg"></img>
+                                </div>
+                            </a>
+                            <a class="copy_a" onClick="getNewPhoto('Sharpen')" id="Sharpen" >Sharpen
+                                <img src="samples/sharpen.png">
+                                <div  >
+                                    <img src="https://adch.org.uk/wp-content/uploads/2021/02/Cute-dog-and-cat.jpg"></img>
+                                </div>
+                            </a>
+                            <a class="copy_a" onClick="getNewPhoto('Sobel1')" id="Sobel1" >Sobel1
+                                <img src="samples/sobel1.png">
+                                <div  >
+                                    <img src="https://adch.org.uk/wp-content/uploads/2021/02/Cute-dog-and-cat.jpg"></img>
+                                </div>
+                            </a>
+                            <a class="copy_a" onClick="getNewPhoto('Sobel2')" id="Sobel2" >Sobel2
+                                <img src="samples/sobel2.png">
+                                <div  >
+                                    <img src="https://adch.org.uk/wp-content/uploads/2021/02/Cute-dog-and-cat.jpg"></img>
+                                </div>
+                            </a>
+                        </div>
+                        <div hidden id='menu_color'>
+                            <div class="copy_a_title" onClick="openClose('vintage')">Vintage<object style="width:20px" data="bottom.svg" type="image/svg+xml"></object></div>
+                            <div style="padding-left: 20px;" id='vintage' hidden>
+                                <a class="copy_a" onClick="getNewPhoto('Vintage 1', 1)" id="Vintage 1">Vintage 1
+                                    <img src="samples/vintage_1.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Vintage 2', 2)" id="Vintage 2">Vintage 2
+                                    <img src="samples/vintage_2.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Vintage 3', 3)" id="Vintage 3">Vintage 3
+                                    <img src="samples/vintage_3.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Vintage 4', 4)" id="Vintage 4">Vintage 4
+                                    <img src="samples/vintage_4.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Vintage 5', 5)" id="Vintage 5">Vintage 5
+                                    <img src="samples/vintage_5.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Vintage 6', 6)" id="Vintage 6">Vintage 6
+                                    <img src="samples/vintage_6.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="copy_a_title" onClick="openClose('cold')">Colder<object style="width:20px" data="bottom.svg" type="image/svg+xml"></object></div>
+                            <div style="padding-left: 20px;" id='cold' hidden>
+                                <a class="copy_a" onClick="getNewPhoto('Cold 1', 1)" id="Cold 1">Cold 1
+                                    <img src="samples/cold_1.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Cold 2', 2)" id="Cold 2">Cold 2
+                                    <img src="samples/cold_2.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Cold 3', 3)" id="Cold 3">Cold 3
+                                    <img src="samples/cold_3.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Cold 4', 4)" id="Cold 4">Cold 4
+                                    <img src="samples/cold_4.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Cold 5', 5)" id="Cold 5">Cold 5
+                                    <img src="samples/cold_5.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Cold 6', 6)" id="Cold 6">Cold 6
+                                    <img src="samples/cold_6.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="copy_a_title" onClick="openClose('warm')">Warmer<object style="width:20px" data="bottom.svg" type="image/svg+xml"></object></div>
+                            <div style="padding-left: 20px;" id='warm' hidden>
+                                <a class="copy_a" onClick="getNewPhoto('Warm 1', 1)" id="Warm 1">Warm 1
+                                    <img src="samples/warm_1.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Warm 2', 2)" id="Warm 2">Warm 2
+                                    <img src="samples/warm_2.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Warm 3', 3)" id="Warm 3">Warm 3
+                                    <img src="samples/warm_3.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Warm 4', 4)" id="Warm 4">Warm 4
+                                    <img src="samples/warm_4.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Warm 5', 5)" id="Warm 5">Warm 5
+                                    <img src="samples/warm_5.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Warm 6', 6)" id="Warm 6">Warm 6
+                                    <img src="samples/warm_6.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="copy_a_title" onClick="openClose('winter')">Winter<object style="width:20px" data="bottom.svg" type="image/svg+xml"></object></div>
+                            <div style="padding-left: 20px;" id='winter' hidden>
+                                <a class="copy_a" onClick="getNewPhoto('Winter 1', 1)" id="Winter 1">Winter 1
+                                    <img src="samples/winter_1.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Winter 2', 2)" id="Winter 2">Winter 2
+                                    <img src="samples/winter_2.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Winter 3', 3)" id="Winter 3">Winter 3
+                                    <img src="samples/winter_3.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Winter 4', 4)" id="Winter 4">Winter 4
+                                    <img src="samples/winter_4.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Winter 5', 5)" id="Winter 5">Winter 5
+                                    <img src="samples/winter_5.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Winter 6', 6)" id="Winter 6">Winter 6
+                                    <img src="samples/winter_6.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div hidden id='menu_frame'>
+                            <div class="copy_a_title" onClick="openClose('equal')">Equal Width<object style="width:20px" data="bottom.svg" type="image/svg+xml"></object></div>
+                            <div style="padding-left: 20px;" hidden id='equal'>
+                                <a class="copy_a" onClick="getNewPhoto('Eq_Border1', 1)" id="Eq_Border1">Border1
+                                    <img src="samples/border_1.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Eq_Border2', 2)" id="Eq_Border2">Border2
+                                    <img src="samples/border_2.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Eq_Border3', 3)" id="Eq_Border3">Border3
+                                    <img src="samples/border_3.png"> 
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Eq_Border4', 4)" id="Eq_Border4">Border4
+                                    <img src="samples/border_4.png"> 
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Eq_Border5', 5)" id="Eq_Border5">Border5
+                                    <img src="samples/border_5.png"> 
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Eq_Border6', 6)" id="Eq_Border6">Border6
+                                    <img src="samples/border_6.png"> 
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="copy_a_title" onClick="openClose('un_equal')">Un-equal Width<object style="width:20px" data="bottom.svg" type="image/svg+xml"></object></div>
+                            <div style="padding-left: 20px;" hidden id='un_equal'>
+                                <a class="copy_a" onClick="getNewPhoto('Uneq_Border1', 1)" id="Uneq_Border1">
+                                    Border1 <img src="samples/un_border_1.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Uneq_Border2', 2)" id="Uneq_Border2">
+                                    Border2 <img src="samples/un_border_2.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Uneq_Border3', 3)" id="Uneq_Border3">
+                                    Border3 <img src="samples/un_border_3.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Uneq_Border4', 4)" id="Uneq_Border4">
+                                    Border4 <img src="samples/un_border_4.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Uneq_Border5', 5)" id="Uneq_Border5">
+                                    Border5 <img src="samples/un_border_5.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Uneq_Border6', 6)" id="Uneq_Border6">
+                                    Border6 <img src="samples/un_border_6.png">
+                                    <div  >
+                                        <img src="https://wallpaperaccess.com/full/2859272.jpg"></img>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="copy_a_title" onClick="openClose('Border')" id="Custom Border">Custom Border <object style="width:20px" data="bottom.svg" type="image/svg+xml"></object></div>
+                            <div style="padding: 10px 10px; background-color: rgb(233, 233, 233); " id="Border" hidden>
+                                <div style="display: flex; flex-direction: row; font-size: 16px; justify-content: center;">
+                                    <div id="rgb_display" style="width: 80px; height: 40px; background: black"></div>
+                                </div>
+                                <div style="display: flex; flex-direction: row; font-size: 16px; justify-content: space-between; margin-top:10px">
+                                    <div style="margin: 0 5px">Red:<input id="red" style="width: 50px; margin: 0 2px" type="number" min='0' max='255' onchange="change_rgb()" value='0'></div>
+                                    <div style="margin: 0 5px">Green:<input id="green" style="width: 50px; margin: 0 2px" type="number" min='0' max='255' onchange="change_rgb()" value='0'></div>
+                                    <div style="margin: 0 5px">Blue:<input id="blue" style="width: 50px; margin: 0 2px" type="number" min='0' max='255' onchange="change_rgb()" value='0'></div>
+                                </div>
+                                <div style="margin: 10px 0"> 
+                                    <div style="margin: 10px 5px; display: flex; flex-direction: row; justify-content: space-between; align-items: center">
+                                        <div>Left Thickness:</div> 
+                                        <input style="margin: 5px; width: 40px; text-align: center;" type="number" id="left_thick" value='100'> 
+                                    </div>
+                                    <div style="margin: 10px 5px; display: flex; flex-direction: row; justify-content: space-between; align-items: center">
+                                        <div>Right Thickness:</div> 
+                                        <input style="margin: 5px; width: 40px; text-align: center;" type="number" id="right_thick" value='100'> 
+                                    </div>
+                                    <div style="margin: 10px 5px; display: flex; flex-direction: row; justify-content: space-between; align-items: center">
+                                        <div>Top Thickness:</div> 
+                                        <input style="margin: 5px; width: 40px; text-align: center;" type="number" id="top_thick" value='100'>
+                                    </div>
+                                    <div style="margin: 10px 5px; display: flex; flex-direction: row; justify-content: space-between; align-items: center">
+                                        <div>Bottom Thickness:</div> 
+                                        <input style="margin: 5px; width: 40px; text-align: center;" type="number" id="bottom_thick" value='100'>
+                                    </div>
+                                </div>
+                                <div style="display:flex; justify-content: flex-end;">
+                                    <button class="change_btn" type="button" onClick="addFrame()">Add Frame</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div hidden id='menu_operation'>
+                            <div id="Resize" class="copy_a_title" onClick="openClose('resize')">Resize<object style="width:20px" data="bottom.svg" type="image/svg+xml"></object></div>
+                            <div hidden id="resize">
+                                <div style="padding: 10px 3px; background-color: rgb(233, 233, 233);">
+                                    <div style="margin: 8px 0px; display: flex; flex-direction: row; justify-content: space-around; align-items: center">
+                                        <div style="display: flex;text-align: center; ">Width</div>
+                                        <div>
+                                            Original: <span id="ori_width"></span><br>
+                                            Change to: <input min='0' type="number" id="new_width" style="width: 50px"/>
+                                        </div>
+                                    </div>  
+                                    <div style="margin: 8px 0px; display: flex; flex-direction: row; justify-content: space-around; align-items: center">
+                                        <div style="display: flex;text-align: center; ">Height</div>
+                                        <div>
+                                            Original: <span id="ori_height"></span><br>
+                                            Change to: <input min='0' type="number" id="new_height" style="width: 50px"/>
+                                        </div>
+                                    </div> 
+                                </div>
+                                <div style="display:flex; justify-content: flex-end; margin-top: 20px; padding-right: 3px;">
+                                    <button class="change_btn" type="button" onClick="resize()">Resize</button>
+                                </div>
+                            </div>
+                            <div id="Crop" class="copy_a_title" onClick="openClose('crop')">Crop <object style="width:20px" data="bottom.svg" type="image/svg+xml"></object></div>
+                            <div id="crop" hidden>
+                                <div style="padding: 10px; background-color: rgb(233, 233, 233);">
+                                    <div style="margin: 10px 0;">Original: <span style="margin: 3px;" id="ori_width_1"></span>&times;<span style="margin: 3px;" id="ori_height_1"></span></div>
+                                    <div>Crop at: </div>
+                                    <div style="padding: 10px">
+                                        <div style="display: flex; flex-direction: row; height:30px; justify-content: space-between; align-items: center; font-size: 15px">
+                                            <div><span style="width:60px; text-align: left">Left:</span> <input type="number" min="0" max="" style="height: 13px; width: 40px; font-size: 12px" id="left"></input><br></div>
+                                            <div><span style="width:60px; text-align: left">Top:</span> <input type="number" min="0" max="" style="height: 13px; width: 40px; font-size: 12px" id="top"></input><br></div>
+                                        </div>  
+                                        <div style="display: flex; flex-direction: row; height: 30px; justify-content: space-between; align-items: center">
+                                            <div><span style="width:60px; text-align: left">Right:</span> <input type="number" min="0" max="" style="height: 13px; width: 40px; font-size: 12px" id="right"></input><br></div>
+                                            <div><span style="width:60px; text-align: left">Bottom:</span> <input type="number" min="0" max="" style="height: 13px; width: 40px; font-size: 12px" id="bottom"></input><br></div>
+                                        </div> 
+                                    </div>
+                                </div>
+                                <div style="display:flex; justify-content: flex-end; margin-top: 20px; padding-right: 3px;">
+                                    <button class="change_btn" type="button" onClick="crop()">Crop</button>
+                                </div>
+                            </div>
+                            <div id="Rotate" class="copy_a_title" onClick="openClose('rotate')">Rotate<object style="width:20px" data="bottom.svg" type="image/svg+xml"></object></div>
+                            <div id="rotate" hidden>
+                                <div style="padding: 10px 20px; background-color: rgb(233, 233, 233);">
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <div>Rotate at</div>
+                                        <div>
+                                            <input style="width: 3vw" id="change_degree" value="180" type="number" min="0" max="360" onChange="changeDegree()"></input>
+                                            Degree
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display:flex; justify-content: flex-end; margin-top: 20px; padding-right: 3px;">
+                                    <button class="change_btn" type="button" onClick="rotate()">Rotate</button>
+                                </div>
+                            </div>
+                            <div class="copy_a_title" onClick="openClose('flip')">Flip<object style="width:20px" data="bottom.svg" type="image/svg+xml"></object></div>
+                            <div style="padding-left: 20px;" hidden id='flip'>
+                                <a class="copy_a" onClick="getNewPhoto('Flip Horizontal', 1)" id="Flip Horizontal">
+                                    Flip Horizontal <img src="samples/flip_1.png">
+                                    <div  >
+                                        <img src="http://clipart-library.com/images/yikr9jXET.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Flip Vertical', 2)" id="Flip Vertical">
+                                    Flip Vertical <img src="samples/flip_2.png">
+                                    <div  >
+                                        <img src="http://clipart-library.com/images/yikr9jXET.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Flip 90', 3)" id="Flip 90">
+                                    Flip 90 <img src="samples/flip_3.png">
+                                    <div  >
+                                        <img src="http://clipart-library.com/images/yikr9jXET.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Flip 180', 4)" id="Flip 180">
+                                    Flip 180 <img src="samples/flip_4.png">
+                                    <div  >
+                                        <img src="http://clipart-library.com/images/yikr9jXET.jpg"></img>
+                                    </div>
+                                </a>
+                                <a class="copy_a" onClick="getNewPhoto('Flip Transpose', 5)" id="Flip Transpose">
+                                    Flip Transpose <img src="samples/flip_5.png">
+                                    <div  >
+                                        <img src="http://clipart-library.com/images/yikr9jXET.jpg"></img>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="benchmark" style="flex-direction: column" id="btns">
+                    <div style="width: 550px;display:flex; flex-direction: row; justify-content: flex-end; align-items: right; margin-bottom:10px">
+                        <button class="btn_reset" onClick="reset()">
+                            <object style="width:20px" data="replay.svg" type="image/svg+xml" onClick="reset()"></object>
+                            Reset
+                        </button>
+                        <button class="btn_original" id="seeOrigin" onClick="seeBefore()">
+                            Before
+                        </button>
+                    </div>
+                    <img class="photo" hidden id="raw_image" src=""/>
+                    <img class="photo" id="new_image" src=""/>
+                    <a href="https://wallpaperaccess.com/full/2859272.jpg" style="color: black" download id="download">Click to Download</a>
+                    <div class="show_filters" id="show_filters"></div>
+                </div>
+            </div>
+            <div id="url" hidden class="floating_URL">
+                <input id="image_url" type="url"/><br>
+                <div id="invalid" hidden style="color:red">Invalid Address!</div>
+                <button type="submit" onClick="updateURL()">Change Photo</button>
+            </div>
+            <button type="submit" onClick="display()" class="floating_edit"> <i class="material-icons">edit</i></button>
+            <div hidden=true class="Wait" id="Wait">
+                <i class="fa fa-spinner fa-spin"></i>
+                Loading
+            </div>
+            
+        </div>
         <script>
-            function checkImage(url) {
-                var http = new XMLHttpRequest(); 
-                try{
-                    http.open('HEAD', url, false); 
-                    http.send(); 
-                }catch{
-                    return false;
-                }
-                return http.status != 404; 
+            var curr_filters = [];
+            var title = 'basic';
+            var curr_filter = 'BlackAndWhite';
+            var width = 3840;
+            var height = 2160;
+            //var valid = true;
+            var image = "https://wallpaperaccess.com/full/2859272.jpg";
+            var curr_image = "https://wallpaperaccess.com/full/2859272.jpg";
+            document.getElementById(title).classList.remove('big_title', 'big_title_selected');
+            document.getElementById(title).classList.add('big_title_selected');
+            document.getElementById('menu_basic').hidden = false;
+            function changeDegree(){
+                var degree = document.getElementById('change_degree').value;
+                document.getElementById('display_degree').innerHTML = degree;
             }
-            function getNewPhoto(ROUTE, data="redRange"){
-                document.getElementById('Wait').hidden = false;
-                console.log(document.getElementById(data).value);
-                fetch("http://127.0.0.1:5000/"+ROUTE, {
+            function update_Image(src){
+                image = src;
+                document.getElementById('raw_image').src = src;
+                document.getElementById('new_image').src = src;
+                document.getElementById('ori_width').innerHTML = width;
+                document.getElementById('ori_width_1').innerHTML = width;
+                document.getElementById('ori_height').innerHTML = height;
+                document.getElementById('ori_height_1').innerHTML = height;
+            }
+            function reset(){
+                var parent = document.getElementById('show_filters');
+                parent.remove();
+                document.getElementById('download').href = image;
+                var new_p = document.createElement('div');
+                new_p.className = 'show_filters';
+                new_p.id = 'show_filters';
+                var p = document.getElementById('btns');
+                p.appendChild(new_p);
+                update_Image(image, width, height);
+                curr_filters = [];
+            }
+            update_Image(image);
+            function seeBefore(){
+                if (document.getElementById('raw_image').hidden == true) {
+                    document.getElementById('raw_image').hidden = false;
+                    document.getElementById('new_image').hidden = true;
+                    document.getElementById('seeOrigin').innerHTML = 'After';
+                    setTimeout(function(){
+                        document.getElementById('raw_image').hidden = true;
+                        document.getElementById('new_image').hidden = false;
+                        document.getElementById('seeOrigin').innerHTML = 'Before';
+                    }, 2000)
+                } else{
+                    document.getElementById('raw_image').hidden = true;
+                    document.getElementById('new_image').hidden = false;
+                    document.getElementById('seeOrigin').innerHTML = 'Before';
+                }
+            }
+            function checkImage(url) {
+                var valid = fetch("http://127.0.0.1:5000/getSize", {
                     body: JSON.stringify({
                         mode: 'no-cors',
                         credentials: 'include',
-                        'image': document.getElementById('raw_image').src,
-                        'data': document.getElementById(data).value,
+                        'image': url,
                     }),
                     headers: {
                         'content-type': 'application/json',
@@ -33,10 +664,45 @@
                 }).then( res => {
                     return res.json();
                 }).then( res => {
-                    document.getElementById("new_image").src = '';
+                    return res;
+                })
+                return valid;
+            }
+            function getNewPhoto(ROUTE, data=""){
+                document.getElementById('Wait').hidden = false;
+                document.getElementById(curr_filter).classList.remove('copy_a','copy_a_selected');
+                document.getElementById(curr_filter).classList.add('copy_a');
+                document.getElementById(ROUTE).classList.remove('copy_a','copy_a_selected');
+                document.getElementById(ROUTE).classList.add('copy_a_selected');
+                curr_filter = ROUTE;
+                fetch("http://127.0.0.1:5000/"+ROUTE, {
+                    body: JSON.stringify({
+                        mode: 'no-cors',
+                        credentials: 'include',
+                        'image': document.getElementById('new_image').src,
+                        'data': data,
+                    }),
+                    headers: {
+                        'content-type': 'application/json',
+                    },
+                    method: 'POST',
+                }).then( res => {
+                    return res.json();
+                }).then( res => {
                     document.getElementById("new_image").src = res['new_image'];
-                    console.log('HEY');
                     document.getElementById('Wait').hidden = true;
+                    document.getElementById('download').href = res['new_image'];
+                    return res['new_image'];
+                }).then( res => {
+                    curr_filter = ROUTE;
+                    curr_filters.push(ROUTE);
+                    var new_filter = document.createElement('div');
+                    new_filter.className = "curr_filter";
+                    new_filter.innerHTML = ROUTE;
+                    var filters = document.getElementById('show_filters');
+                    filters.appendChild(new_filter);
+                }).catch( err => {
+                    console.log('Error!');
                 })
             } 
             function display(){
@@ -48,64 +714,77 @@
             }
             function updateURL(){
                 var url = document.getElementById('image_url').value;
-                if(checkImage(url)){
-                    document.getElementById('raw_image').src = url;
-                    document.getElementById('new_image').src = url;
-                    document.getElementById('url').hidden = true;
-                    document.getElementById('invalid').hidden = true;
-                }else{
-                    console.log('Invalid image address!')
-                    document.getElementById('invalid').hidden = false;
-                }
+                checkImage(url).then(data => {
+                    console.log(data);
+                    if(data['valid']){
+                        width = data['width'];
+                        height = data['height'];
+                        update_Image(url);
+                        document.getElementById('url').hidden = true;
+                        document.getElementById('invalid').hidden = true;
+                        reset();
+                    }else{
+                        console.log('Invalid image address!')
+                        document.getElementById('invalid').hidden = false;
+                    }
+                })
+            }
+            function updateBigTitle(new_title){
+                document.getElementById(title).classList.remove('big_title', 'big_title_selected');
+                document.getElementById(title).classList.add('big_title');
+                document.getElementById('menu_'+title).hidden = true;
+                title = new_title;
+                document.getElementById(title).classList.remove('big_title', 'big_title_selected');
+                document.getElementById(title).classList.add('big_title_selected');
+                document.getElementById('menu_'+title).hidden = false;
+            }
+            function openClose(hidden_menu){
+                var curr = document.getElementById(hidden_menu).hidden;
+                if (curr){
+                    document.getElementById(hidden_menu).hidden = false;
+                } else{
+                    document.getElementById(hidden_menu).hidden = true;
+                }   
+            }
+            function change_rgb(){
+                var red = document.getElementById('red').value;
+                var green = document.getElementById('green').value;
+                var blue = document.getElementById('blue').value;
+                var rgb = "rgb(" + red + "," + green + "," + blue + ")"; 
+                document.getElementById('rgb_display').style.background = rgb;
+                document.getElementById('red_val').value = red;
+                document.getElementById('green_val').value = green;
+                document.getElementById('blue_val').value = blue;
+                console.log(rgb);
+            }
+            function addFrame(){
+                getNewPhoto('Custom Border', {
+                    'red': document.getElementById('red').value,
+                    'green': document.getElementById('green').value,
+                    'blue': document.getElementById('blue').value,
+                    'left': document.getElementById('left_thick').value,
+                    'right': document.getElementById('right_thick').value,
+                    'top': document.getElementById('top_thick').value,
+                    'bottom': document.getElementById('bottom_thick').value
+                })
+            }
+            function resize(){
+                var width = document.getElementById('new_width').value;
+                var height = document.getElementById('new_height').value;
+                console.log(width, height);
+                getNewPhoto('Resize', [width, height]);
+            }
+            function crop(){
+                var top = document.getElementById('top').value;
+                var bottom = document.getElementById('bottom').value;
+                var left = document.getElementById('left').value;
+                var right = document.getElementById('right').value;
+                getNewPhoto('Crop', [left, top, right, bottom]);
+            }
+            function rotate(){
+                var degree = document.getElementById('change_degree').value;
+                getNewPhoto('Rotate', degree);
             }
         </script>
-    </head>
-    <body>
-        <div class="head">Filter! </div>
-        <div class="page">
-            <div hidden=false class="Wait" id="Wait" >
-                <i class="fa fa-spinner fa-spin"></i> Loading
-            </div>
-            <div class="container">
-                <div class="banner" style="flex-direction: column">
-                    <div class="filter_title">Select Filters</div>
-                    <div class="menu">
-                        <a active='' onClick="getNewPhoto('BlackAndWhite')" >Black and White</a>
-                        <a active='' onClick="getNewPhoto('OldFilm')">Old Film</a>
-                        <a active='' onClick="getNewPhoto('Reverse')">Reverse</a>
-                        <a active='' onClick="getNewPhoto('RedEnhance', 'redRange')">
-                            Red Enhance
-                            <div>
-                                0<input id="redRange" type="range" min="1.0" step="0.1" max="20.0"  value="10.0" />20</div>
-                        </a>
-                        <a active='' onClick="getNewPhoto('GreenEnhance', 'greenRange')">
-                            Green Enhance
-                            <div>0<input id="greenRange" type="range" min="1.0" step="0.1" max="20.0" value="10.0" /> 20 </div>
-                        </a>
-                        <a active='' onClick="getNewPhoto('BlueEnhance','blueRange')">
-                            Blue Enhance
-                            <div>0<input id="blueRange" type="range" min="1.0" step="0.1" max="20.0" value="10.0" /> 20 </div>
-                        </a>
-                        <a active='' onClick="getNewPhoto('EdgeEnhance')">Edge Enhance</a>
-                        <a active='' onClick="getNewPhoto('Blur')">Blur</a>
-                        <a active='' onClick="getNewPhoto('Contour')">Contour</a>
-                        <a active='' onClick="getNewPhoto('Detail')">Detail</a>
-                        <a active='' onClick="getNewPhoto('Smooth')">Smooth</a>
-                        <a active='' onClick="getNewPhoto('Sharpen')">Sharpen</a>
-                    </div>
-                </div>
-                <div class="benchmark" style="flex-direction: column">
-                    <img hidden id="raw_image" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.P_esfI5wWN8T2rwPGl3osgHaFC?w=235&h=180&c=7&o=5&dpr=1.25&pid=1.7"/>
-                    <img class="photo" id="new_image" \
-                        src="https://tse4-mm.cn.bing.net/th/id/OIP-C.P_esfI5wWN8T2rwPGl3osgHaFC?w=235&h=180&c=7&o=5&dpr=1.25&pid=1.7"/>
-                </div>
-            </div>
-            <div id="url" hidden class="floating_URL">
-                <input id="image_url" type="url"/><br>
-                <div id="invalid" hidden style="color:red">Invalid Address!</div>
-                <button type="submit" onClick="updateURL()">Change Photo</button>
-            </div>
-            <button type="submit" onClick="display()" class="floating_edit"> <i class="material-icons">edit</i></button>
-        </div>
     </body>
 </html>

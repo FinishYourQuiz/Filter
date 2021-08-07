@@ -1,19 +1,22 @@
 .head{
-    padding: 0.4vw 1vw;
-    /* background-color: black; */
-    color: black;
+    padding: 1vw 1vw;
+    background-color: black;
+    color: white;
     font-family: American Typewriter, serif;
     font-weight: bolder;
     font-size: 3vh;
     letter-spacing: 2px;
+    border-radius: 10px 10px 0 0;
     /* margin-bottom: 10px; */
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
 }
 
 .page{
     height: 90vh;
-    padding: 0vw 2vw;
+    /* padding: 0vw 2vw; */
     background: white;
+    border: 1px solid black;
+    border-radius: 0 0 10px 10px;
 }
 
 .Wait{
@@ -26,18 +29,65 @@
 }
 
 .container{
-    margin-top: 20px;
+    /* margin-top:10px; */
     display: flex;
     flex-direction: row;
+    /* background: rgb(241, 236, 236);  */
+    z-index: -1;
+}
+
+.bigTitle{
+    padding: 20px 0px;
+}
+
+.big_title {
+    width: 120px;
+    font-size: 18px;
+    padding: 10px 12px;
+    margin: 10px 0;
+    text-align: right;
+    border-radius: 3px 0 0 3px;
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+.big_title:hover {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.big_title_selected {
+    font-weight: bolder;
+    background: black;
+    color: white;
+    width: 120px;
+    font-size: 20px;
+    padding: 10px 12px;
+    margin: 10px 0;
+    text-align: right;
+    border-radius: 3px 0 0 3px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.big_title:hover{
+    cursor: pointer;
+    background-color: gray;
+    color: white;
 }
 
 .banner{
+    height: 90vh;
     display: flex;
-    flex: 3.5;
-    margin: 0 2vw;
-    border: 1px solid black;
+    flex: 3;
+    width: 200px;
+    /* margin: 0 2vw; */
+    /* border: 1px solid black; */
+    border-left: 2px solid black;
     font-weight: bold;
-    border-radius: 10px;
+    /* border-radius: 4px; */
+    overflow: scroll;
+    /* background: black; */
 }
 
 .filter_title{
@@ -47,7 +97,6 @@
     justify-content: center;
     align-items: center; 
     height: 40px;  
-    margin-bottom:10px; 
 }
 
 .tag{
@@ -55,7 +104,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin: 20px;
+    margin: 10px;
     margin-right: 20vw;
 }
 
@@ -63,50 +112,241 @@
     /* width: 100%;  */
     /* margin-right: 3vw; */
     /* border: 1px solid black; */
-    margin: 0 2vw;
+    margin: 10px;
     font-weight: normal;
-    height: 80vh;
 }
 
-.menu a {
-    /* background-color: #eee;  */
-    color: black; 
-    display: block; 
-    padding: 12px; 
-    border-bottom: 0.5px solid black;
-    /* text-overflow: ellipsis; */
+.copy_a{
+    display: flex; 
+    flex-direction: row;
+    padding: 5px 12px; 
+    border-radius: 5px;
+    border-bottom: 1px solid white;
+    margin: 20px 0;
+    justify-content: space-between;
+    align-items: center;
     cursor: pointer;
+    transition: 0.3s;
+    background: rgb(248, 248, 248);
+    color: black; 
+    border: 1px solid black;
 }
 
-.menu a:hover {
+.copy_a_title{
+    display: flex; 
+    flex-direction: row;
+    padding: 5px 12px; 
+    border-radius: 5px;
+    border-bottom: 1px solid white;
+    margin: 20px 0;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+    background: rgb(248, 248, 248);
+    color: black; 
+    border: 1px solid black;
+}
+
+.copy_a_title:hover{
     background-color: black;
-    color:white; 
-}
-
-.menu a.active {
-    background-color: #04AA6D;
     color: white;
 }
 
+.copy_a img{
+    width: 70px; 
+    height: 50px;
+    color: black; 
+    border-radius: 5px;
+    justify-content: right;
+    align-items: center;
+    cursor: pointer;
+    object-fit: contain;
+    transition: 0.5s; 
+}
+
+.copy_a div{
+    position: absolute;
+    top:15%;
+    left: 30%;
+    z-index: 1;
+    align-items: center;
+    justify-content: left;
+}
+
+.copy_a div{
+    display: none;
+    transition: 0.5s;
+}
+
+.copy_a:hover {
+    color: white;
+    background: rgb(124, 124, 124);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.copy_a:hover img{
+    width: 200px;
+    height: 80px;
+    color: black; 
+    border-radius: 5px;
+    cursor: pointer;
+    object-fit: contain;
+}
+
+.copy_a:hover div{
+    display: block;
+    /* width: 200px; */
+    /* height: 80px; */
+}
+
+.copy_a_selected{
+    background: black;
+    color: white; 
+    display: flex; 
+    flex-direction: row;
+    padding: 12px; 
+    border-radius: 5px;
+    border: 1px solid black;
+    margin: 20px 0;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bolder;
+    transition: 0.5s;
+}
+
+.copy_a_selected img{
+    width: 70px; 
+    height: 50px;
+    border-radius: 5px;
+    justify-content: right;
+    align-items: center;
+    cursor: pointer;
+    object-fit: contain;
+    transition: 0.5s;
+}
+
+.copy_a_selected div{
+    display: none;
+}
+
+.copy_a_selected:hover img{
+    width: 200px;
+    height: 80px;
+    color: black; 
+    border-radius: 5px;
+    justify-content: right;
+    align-items: center;
+    cursor: pointer;
+    object-fit: contain;
+}
+
+.change_btn{
+    padding: 5px 8px;
+    font-size: 12px;
+    background: gray; 
+    color: white; 
+    font-weight: bold; 
+    border-radius: 8px ;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.change_btn:hover {
+    font-size: 15px;
+    background: black; 
+    font-weight: bolder; 
+}
+
 .benchmark{
+    padding-top: 40px;
     border-radius: 10px;
     display: flex;
     flex: 10;
+    position: relative;
     height: 80vh;
-    /* padding: 1vw 3vw; */
-    /* border-left: 1px solid black; */
-    /* border: 1px solid black; */
     display:flex;
     justify-content: center;
     align-items: center;
 }
 
 .photo{
-    /* border: 1px solid black; */
+    position: relative;
     margin-right: 5vw;
     object-fit: contain; 
-    width: 600px; 
-    height:400px;
+    width: 650px; 
+    height: 450px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.photo:hover{
+    -moz-box-shadow: 0 0 10px #ccc;
+    -webkit-box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px #ccc;
+}
+
+.btn_original{
+    font-size: 15px;
+    /* position: relative; */
+    display: flex;
+    /* right: -25%; */
+    padding: 6px 10px; 
+    background: white; 
+    border: 1px solid black;
+    border-radius: 8px; 
+    cursor: pointer;
+    /* background: black; */
+    /* color: white; */
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.btn_original:hover{
+    background: rgb(48, 113, 235);
+    color: white;
+}
+
+.btn_reset{
+    font-size: 14px;
+    margin-right: 10px;
+    /* position: relative; */
+    /* right: -25%; */
+    display: flex;
+    /* padding: 6px 10px;  */
+    background: black; 
+    color: white;
+    border: 1px solid black;
+    border-radius: 8px; 
+    cursor: pointer;
+    transition: 0.3s;
+    right: 23.5%;
+    transition: 0.3s;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn_reset:hover{
+    background: red;
+}
+
+.show_filters{
+    position: relative; 
+    margin-top: 30px; 
+    display: flex; 
+    flex-wrap: wrap;
+    width: 650px; 
+    height: 60px;
+    max-height: 300px;
+    /* height:300px;  */
+    overflow: auto;
+}
+
+.show_filters >* {
+    flex: 0 0 10%;
 }
 
 .floating_edit{
@@ -116,13 +356,12 @@
     font-size: 50px;
     width: 50px;
     height: 50px;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50px;
     background-color: white;  
     box-shadow: gray 0 1px 6px;
-    /* background-color: black; */
 }
 
 .floating_edit i{
@@ -145,6 +384,7 @@
     right: 20px;
     bottom: 80px;
     text-align: right;
+    transition: 0.3s;
 }
 
 .floating_URL input{
@@ -154,7 +394,7 @@
     border-radius: 20px;
     height: 30px;
     box-shadow: gray 0 1px 2px;
-    transition: ease-in-out, width .3s ease-in-out;
+    transition: 0.3s;
 }
 
 .floating_URL input:focus{
@@ -170,6 +410,7 @@
     background-color: white;
     cursor: pointer;
     box-shadow: gray 0 1px 6px;
+    transition: 0.3s;
 }
 
 .floating_URL button:hover{
@@ -177,4 +418,45 @@
     font-weight: bold;
     background-color: black;
     cursor: pointer;
+}
+
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 1000px; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+
+.curr_filter{
+    color: white;
+    display: flex;
+    background: black;
+    border-radius: 5px;
+    padding: 5px 12px;
+    margin-right: 5px;
+    font-weight: bold;
+    animation-duration: 0.3s;
+    animation-name: slidein;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 15px;
+    }
+
+    to {
+        margin-left: 0%;
+    }
 }
