@@ -3,6 +3,8 @@ Name: Ziyao Yang
 
 Student number:  z5183948
 
+## If you cannot See this project successfully, please visit https://github.com/FinishYourQuiz/Filter.git instead!
+
 ## __Problem statement__
 
 __Enhance the photo effect effectively, without using any professional or tedious tool. Just select the filter then you will get the new photo you want to see.__ 
