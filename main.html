@@ -594,7 +594,7 @@
                 <i class="fa fa-spinner fa-spin"></i>
                 Loading
             </div>
-            
+            <div id="alert" hidden class="alert"></div>
         </div>
         <script>
             var curr_filters = [];
@@ -602,7 +602,6 @@
             var curr_filter = 'BlackAndWhite';
             var width = 3840;
             var height = 2160;
-            //var valid = true;
             var image = "https://wallpaperaccess.com/full/2859272.jpg";
             var curr_image = "https://wallpaperaccess.com/full/2859272.jpg";
             document.getElementById(title).classList.remove('big_title', 'big_title_selected');
@@ -675,7 +674,7 @@
                 document.getElementById(ROUTE).classList.remove('copy_a','copy_a_selected');
                 document.getElementById(ROUTE).classList.add('copy_a_selected');
                 curr_filter = ROUTE;
-                fetch("http://127.0.0.1:5000/"+ROUTE, {
+                var res = fetch("http://127.0.0.1:5000/"+ROUTE, {
                     body: JSON.stringify({
                         mode: 'no-cors',
                         credentials: 'include',
@@ -701,9 +700,13 @@
                     new_filter.innerHTML = ROUTE;
                     var filters = document.getElementById('show_filters');
                     filters.appendChild(new_filter);
+                    return true;
                 }).catch( err => {
-                    console.log('Error!');
+                    document.getElementById('alert').innerHTML = "An error occur, please try again!";
+                    document.getElementById('Wait').hidden = true;
+                    return false;
                 })
+                return res;
             } 
             function display(){
                 if(document.getElementById('url').hidden){
@@ -769,8 +772,8 @@
                 })
             }
             function resize(){
-                var width = document.getElementById('new_width').value;
-                var height = document.getElementById('new_height').value;
+                var new_width = document.getElementById('new_width').value;
+                var new_height = document.getElementById('new_height').value;
                 console.log(width, height);
                 getNewPhoto('Resize', [width, height]);
             }
@@ -779,7 +782,26 @@
                 var bottom = document.getElementById('bottom').value;
                 var left = document.getElementById('left').value;
                 var right = document.getElementById('right').value;
-                getNewPhoto('Crop', [left, top, right, bottom]);
+                getNewPhoto('Crop', [left, top, right, bottom]).then(res => {
+                    console.log(res);
+                    if (!res){
+                        document.getElementById('alert').innerHTML = "Please set valid values!";
+                        document.getElementById('alert').style.display = "block";
+                        setTimeout(() => {
+                            document.getElementById('alert').style.display = "none";
+                        }, 2000);
+                    }else{
+                        checkImage(document.getElementById("new_image").src).then(data => {
+                            console.log(data);
+                            if(data['valid']){
+                                width = data['width'];
+                                height = data['height'];
+                                update_Image(document.getElementById("new_image").src);
+                            }
+                        })
+                    }
+                });
+                
             }
             function rotate(){
                 var degree = document.getElementById('change_degree').value;

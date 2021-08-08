@@ -4,7 +4,7 @@
     color: white;
     font-family: American Typewriter, serif;
     font-weight: bolder;
-    font-size: 3vh;
+    font-size: 2.5vh;
     letter-spacing: 2px;
     border-radius: 10px 10px 0 0;
     /* margin-bottom: 10px; */
@@ -23,7 +23,7 @@
     position:absolute;
     top:40%;
     left:50%;
-    font-size: 20px;
+    font-size: -8px+ 20px;
     color: white;
     text-shadow: black 0px 0px 10px;
 }
@@ -42,7 +42,7 @@
 
 .big_title {
     width: 120px;
-    font-size: 18px;
+    font-size: -8px+ 18px;
     padding: 10px 12px;
     margin: 10px 0;
     text-align: right;
@@ -53,7 +53,7 @@
 
 .big_title:hover {
     font-weight: bold;
-    font-size: 20px;
+    font-size: -8px+ 20px;
 }
 
 .big_title_selected {
@@ -61,7 +61,7 @@
     background: black;
     color: white;
     width: 120px;
-    font-size: 20px;
+    font-size: -8px+ 20px;
     padding: 10px 12px;
     margin: 10px 0;
     text-align: right;
@@ -92,7 +92,7 @@
 
 .filter_title{
     /* font-family: American Typewriter, serif; */
-    font-size: 20px;
+    font-size: -8px+ 20px;
     display:flex;
     justify-content: center;
     align-items: center; 
@@ -117,6 +117,7 @@
 }
 
 .copy_a{
+    font-size: 15px;
     display: flex; 
     flex-direction: row;
     padding: 5px 12px; 
@@ -133,6 +134,7 @@
 }
 
 .copy_a_title{
+    font-size: 15px;
     display: flex; 
     flex-direction: row;
     padding: 5px 12px; 
@@ -182,7 +184,7 @@
 .copy_a:hover {
     color: white;
     background: rgb(124, 124, 124);
-    font-size: 18px;
+    font-size: -8px+ 18px;
     font-weight: bold;
 }
 
@@ -245,7 +247,7 @@
 
 .change_btn{
     padding: 5px 8px;
-    font-size: 12px;
+    font-size: -8px+ 12px;
     background: gray; 
     color: white; 
     font-weight: bold; 
@@ -255,7 +257,7 @@
 }
 
 .change_btn:hover {
-    font-size: 15px;
+    font-size: -8px+ 15px;
     background: black; 
     font-weight: bolder; 
 }
@@ -289,7 +291,7 @@
 }
 
 .btn_original{
-    font-size: 15px;
+    font-size: -8px+ 15px;
     /* position: relative; */
     display: flex;
     /* right: -25%; */
@@ -311,7 +313,7 @@
 }
 
 .btn_reset{
-    font-size: 14px;
+    font-size: -8px+ 14px;
     margin-right: 10px;
     /* position: relative; */
     /* right: -25%; */
@@ -353,7 +355,7 @@
     position: fixed;
     right: 20px;
     bottom: 20px;
-    font-size: 50px;
+    font-size: -8px+ 50px;
     width: 50px;
     height: 50px;
     display: flex;
@@ -365,7 +367,7 @@
 }
 
 .floating_edit i{
-    font-size: 30px;  
+    font-size: -8px+ 30px;  
     background-color: white;  
 }
 
@@ -388,7 +390,7 @@
 }
 
 .floating_URL input{
-    font-size: 15px;
+    font-size: -8px+ 15px;
     text-align: center;
     width: 170px;
     border-radius: 20px;
@@ -406,7 +408,7 @@
     margin-top: 10px;
     border-radius: 20px;
     padding: 5px 10px;
-    font-size: 17px;
+    font-size: -8px+ 17px;
     background-color: white;
     cursor: pointer;
     box-shadow: gray 0 1px 6px;
@@ -460,3 +462,13 @@
         margin-left: 0%;
     }
 }
+
+.alert{
+    display: none;
+    position: absolute;
+    left: 45%;
+    top: 30%;
+    color: white;
+    text-shadow: black 0px 0px 10px;
+}
+
