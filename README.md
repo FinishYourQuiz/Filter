@@ -3,7 +3,7 @@ Name: Ziyao Yang
 
 Student number:  z5183948
 
-## If you cannot See this project successfully, please visit https://github.com/FinishYourQuiz/Filter.git instead!
+## If you cannot open this project successfully, please visit https://github.com/FinishYourQuiz/Filter.git instead!
 
 ## __Problem statement__
 
